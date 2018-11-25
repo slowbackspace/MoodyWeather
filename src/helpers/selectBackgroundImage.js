@@ -24,6 +24,9 @@ const selectBackgroundImage = (type) => {
     "mist": [
       mist1
     ],
+    "fog": [
+      mist1
+    ],
     "thuderstorm": [
       thuderstorm1
     ],
