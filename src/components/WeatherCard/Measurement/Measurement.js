@@ -6,9 +6,11 @@ import WeatherIcons from "react-weathericons";
 const MeasurementContainer = styled.div`
   flex: 1 1 calc(33% - 32px);
   margin: 16px;
+  align-self: center;
 
   @media all and (max-width: 380px) {
     flex: 1 1 100%;
+    margin-top: 0;
   }
 `;
 
@@ -22,7 +24,10 @@ const MeasurementTitle = styled.div`
 
 const MeasurementContent = styled.div`
   display: flex;
-  align-items: center;
+
+  @media all and (max-width: 380px) {
+    justify-content: space-between;
+  }
 `;
 
 const StyledWeatherIcons = styled(WeatherIcons)`
