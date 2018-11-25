@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import { randomSubmitTitle } from "../../helpers/randomSubmitTitle";
 import { getCurrentPosition } from "../../helpers/geolocation";
@@ -21,11 +21,16 @@ const Wrapper = styled.div`
   padding: 16px 32px;
 `;
 
+const SearchBar = styled.div`
+  display: flex;
+  width: 100%;
+  margin-bottom: 16px;
+`
+
 const SearchInput = styled(Input)`
   width: 400px;
   font-size: 1.1em;
   font-weight: bold;
-  margin-bottom: 16px;
 
   @media all and (max-width: 575px) {
     width: 200px;
@@ -33,6 +38,8 @@ const SearchInput = styled(Input)`
 `;
 
 const LocationButton = styled(DarkButton)`
+  width: 42px;
+  height: 42px;
   padding: 6px;
   margin: 0 8px;
 `;
@@ -97,24 +104,26 @@ class SearchBox extends Component {
       <StyledBox>
         <Wrapper>
           <form onSubmit={this.handleSubmit} autoComplete="off">
-            <SearchInput
-              type="text"
-              name="searchInput"
-              placeholder="City name or coordinates"
-              value={this.state.searchQuery}
-              onChange={this.handleChange}
-              autoFocus
-            />
-            <LocationButton
-              type="button"
-              onClick={this.handleLocationRequest}
-              title="Get weather at my location"
-              outline
-              noborders
-              rounded
-            >
-              <MdNearMe size={24} />
-            </LocationButton>
+            <SearchBar>
+              <SearchInput
+                type="text"
+                name="searchInput"
+                placeholder="City name or coordinates"
+                value={this.state.searchQuery}
+                onChange={this.handleChange}
+                autoFocus
+              />
+              <LocationButton
+                type="button"
+                onClick={this.handleLocationRequest}
+                title="Get weather at my location"
+                outline
+                noborders
+                rounded
+              >
+                <MdNearMe size={24} />
+              </LocationButton>
+            </SearchBar>
             <SearchButton
               type="submit"
               size="medium"
