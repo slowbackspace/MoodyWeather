@@ -1,10 +1,10 @@
-import sunny1 from "../assets/sunny/1.jpg";
-import rainy1 from "../assets/rainy/1.jpg";
-import cloudy1 from "../assets/cloudy/1.jpg";
-import snowy1 from "../assets/snowy/1.jpg";
-import mist1 from "../assets/mist/1.jpg";
-import thuderstorm1 from "../assets/thunderstorm/1.jpg";
-import default1 from "../assets/default.jpg";
+import sunny1 from "../assets/sunny/1_c.jpg";
+import rainy1 from "../assets/rainy/1_c.jpg";
+import cloudy1 from "../assets/cloudy/1_c.jpg";
+import snowy1 from "../assets/snowy/1_c.jpg";
+import mist1 from "../assets/mist/1_c.jpg";
+import thuderstorm1 from "../assets/thunderstorm/1_c.jpg";
+import default1 from "../assets/default_c.jpg";
 
 
 const selectBackgroundImage = (type) => {
