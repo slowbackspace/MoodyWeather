@@ -9,8 +9,8 @@ import selectBackgroundImage from "./helpers/selectBackgroundImage";
 
 const GlobalStyle = createGlobalStyle`
 ${styledSanitize}
+@import url("https://fonts.googleapis.com/css?family=Exo");
 body {
-  @import url("https://fonts.googleapis.com/css?family=Exo");
   height: 100%;
   line-height: normal;
   background-image: ${props => `url(${props.img})`};
