@@ -4,6 +4,7 @@ import styled, { keyframes } from "styled-components";
 import { randomSubmitTitle } from "../../helpers/randomSubmitTitle";
 import { getCurrentPosition } from "../../helpers/geolocation";
 
+import Modal from "../UI/Modal";
 import { Card } from "../UI/Card";
 import { Button, DarkButton } from "../UI/Button";
 import { Input } from "../UI/Input";
@@ -25,7 +26,7 @@ const SearchBar = styled.div`
   display: flex;
   width: 100%;
   margin-bottom: 16px;
-`
+`;
 
 const SearchInput = styled(Input)`
   width: 400px;
@@ -55,12 +56,14 @@ class SearchBox extends Component {
     this.state = {
       searchQuery: "",
       geolocation: null,
-      isLocating: false
+      isLocating: false,
+      error: null
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLocationRequest = this.handleLocationRequest.bind(this);
+    this.onModalCloseHandler = this.onModalCloseHandler.bind(this);
 
     this.searchButtonTitle = randomSubmitTitle();
   }
@@ -87,21 +90,38 @@ class SearchBox extends Component {
         this.setState({
           geolocation: geolocation,
           searchQuery: searchQuery,
-          isLocating: false
+          isLocating: false,
+          error: null
         });
         this.props.submitHandler(searchQuery);
       })
       .catch(err => {
         this.setState({
-          isLocating: false
+          isLocating: false,
+          error: err
         });
         console.log(err);
       });
   }
 
+  onModalCloseHandler() {
+    this.setState({
+      error: null
+    });
+  }
+
   render() {
     return (
       <StyledBox>
+        {this.state.error && (
+          <Modal
+            show={true}
+            OkHandler={this.onModalCloseHandler}
+            title="Something went wrong"
+          >
+            {this.state.error}
+          </Modal>
+        )}
         <Wrapper>
           <form onSubmit={this.handleSubmit} autoComplete="off">
             <SearchBar>
