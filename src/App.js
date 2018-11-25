@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import { Route, Switch, withRouter } from 'react-router'
-import Layout from "./components/Layout/Layout"
-import WeatherPage from "./screens/WeatherPage/WeatherPage"
-
+import React, { Component } from "react";
+import { Route, Switch, withRouter } from "react-router";
 import { createGlobalStyle } from "styled-components";
-import styledSanitize from 'styled-sanitize'
+import styledSanitize from "styled-sanitize";
 
+import Layout from "./components/Layout/Layout";
+import WeatherPage from "./screens/WeatherPage/WeatherPage";
 import selectBackgroundImage from "./helpers/selectBackgroundImage";
 
 const GlobalStyle = createGlobalStyle`
@@ -14,7 +13,7 @@ body {
   @import url("https://fonts.googleapis.com/css?family=Exo");
   height: 100%;
   line-height: normal;
-  background-image: ${props =>  `url(${props.img})` };
+  background-image: ${props => `url(${props.img})`};
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -27,7 +26,6 @@ body {
 }
 `;
 class App extends Component {
-
   constructor(props) {
     super(props);
 
@@ -35,13 +33,13 @@ class App extends Component {
 
     this.state = {
       bgImageType: "default"
-    }
+    };
   }
 
   changeBackgroundHandler(bgType) {
     this.setState({
       bgImageType: bgType
-    })
+    });
   }
 
   render() {
@@ -49,7 +47,12 @@ class App extends Component {
 
     const routes = (
       <Switch>
-        <Route path="/:location?" render={() => <WeatherPage changeBackground={this.changeBackgroundHandler} />} />
+        <Route
+          path="/:location?"
+          render={() => (
+            <WeatherPage changeBackground={this.changeBackgroundHandler} />
+          )}
+        />
       </Switch>
     );
     return (

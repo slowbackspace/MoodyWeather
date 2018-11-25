@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import SearchBox from "../../components/SearchBox/SearchBox";
-// import Logo from "../../components/Logo/Logo";
-import WeatherCard from "../../components/WeatherCard/WeatherCard";
+
 import { fetchWeather } from "../../helpers/API";
+import SearchBox from "../../components/SearchBox/SearchBox";
+import WeatherCard from "../../components/WeatherCard/WeatherCard";
 import Modal from "../../components/UI/Modal";
 
 class WeatherPage extends Component {
@@ -51,12 +51,6 @@ class WeatherPage extends Component {
     this.setState({
       isFetching: true
     });
-
-    // const localData = localStorage.getItem("data");
-    // if (localData) {
-    //   this.setState({ data: JSON.parse(localData), error: null, isFetching: false })
-    //   return;
-    // }
 
     fetchWeather(location)
       .then(data => {

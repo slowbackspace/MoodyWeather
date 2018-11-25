@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
 import PropTypes from "prop-types";
-import { Card } from "../UI/Card";
 import WeatherIcon from "react-icons-weather";
+
 import { kelvinToCelsius } from "../../helpers/unitConverter";
-import Measurement from "./Measurement/Measurement";
 import { getTimeFromTimestamp } from "../../helpers/dateUtils";
-import Pin from "../UI/Pin";
 import { toFixed } from "../../helpers/textUtils";
+
+import Measurement from "./Measurement/Measurement";
+import { Pin } from "../UI/Pin";
+import { Card } from "../UI/Card";
 
 const shakeToStill = keyframes`
   100% {
@@ -51,8 +53,7 @@ const StyledWeatherCard = styled(Card)`
   }
 `;
 
-const Title = styled.div`
-`;
+const Title = styled.div``;
 
 const Header = styled.div`
   display: flex;
@@ -92,7 +93,9 @@ class WeatherCard extends Component {
     return (
       <StyledWeatherCard pinned={this.props.pinned}>
         <Header>
-          <Title>{this.props.name}, {this.props.sys.country}</Title>
+          <Title>
+            {this.props.name}, {this.props.sys.country}
+          </Title>
           <Pin
             toggle={e => this.props.togglePin(this.props.name)}
             pinned={this.props.pinned}
@@ -128,7 +131,10 @@ class WeatherCard extends Component {
             <Measurement
               title="Rain"
               iconName="raindrops"
-              value={toFixed(this.props.rain["1h"], 1) || toFixed(this.props.rain["3h"], 1)}
+              value={
+                toFixed(this.props.rain["1h"], 1) ||
+                toFixed(this.props.rain["3h"], 1)
+              }
               unit="mm"
             />
           ) : null}
@@ -136,7 +142,10 @@ class WeatherCard extends Component {
             <Measurement
               title="Snow"
               iconName="snowflake-cold"
-              value={toFixed(this.props.snow["1h"], 1) || toFixed(this.props.snow["3h"], 1)}
+              value={
+                toFixed(this.props.snow["1h"], 1) ||
+                toFixed(this.props.snow["3h"], 1)
+              }
               unit="mm"
             />
           ) : null}

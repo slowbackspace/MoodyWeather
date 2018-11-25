@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import styled, { css } from "styled-components";
-import { Button, DarkButton } from "../UI/Button";
-import { Input } from "../UI/Input";
-import { Card } from "../UI/Card";
-import { MdNearMe } from "react-icons/md";
+import styled from "styled-components";
+
 import { randomSubmitTitle } from "../../helpers/randomSubmitTitle";
 import { getCurrentPosition } from "../../helpers/geolocation";
-const override = css`
-  padding: 8px;
-`;
+
+import { Card } from "../UI/Card";
+import { Button, DarkButton } from "../UI/Button";
+import { Input } from "../UI/Input";
+import { MdNearMe } from "react-icons/md";
 
 const StyledBox = styled(Card)`
   margin: 100px auto;

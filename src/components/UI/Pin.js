@@ -54,4 +54,4 @@ Pin.propTypes = {
   title: PropTypes.string
 };
 
-export default Pin;
+export { Pin };
