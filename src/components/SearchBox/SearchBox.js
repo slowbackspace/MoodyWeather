@@ -7,7 +7,7 @@ import { getCurrentPosition } from "../../helpers/geolocation";
 import { Card } from "../UI/Card";
 import { Button, DarkButton } from "../UI/Button";
 import { Input } from "../UI/Input";
-import { MdNearMe } from "react-icons/md";
+import { MdLocationOn } from "react-icons/md";
 
 const StyledBox = styled(Card)`
   margin: 100px auto;
@@ -119,10 +119,9 @@ class SearchBox extends Component {
                 onClick={this.handleLocationRequest}
                 title="Get weather at my location"
                 outline
-                noborders
                 rounded
               >
-                <MdNearMe size={24} />
+                <MdLocationOn size={24} />
               </LocationButton>
             </SearchBar>
             <SearchButton
