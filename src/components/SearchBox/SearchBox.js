@@ -115,6 +115,7 @@ class SearchBox extends Component {
               />
               <LocationButton
                 type="button"
+                disabled={this.state.isLocating}
                 onClick={this.handleLocationRequest}
                 title="Get weather at my location"
                 outline
