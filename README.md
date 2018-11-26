@@ -9,4 +9,7 @@ Simple React Weather App built with styled components.
 - background images based on weather condition
 - pinned location loads automatically on page visit
 
+### TODO
+- [ ] Show sunrise and sunset times in the location's timezone. 
+
 ![Screenshot](screenshot.png)
