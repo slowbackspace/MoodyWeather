@@ -10,6 +10,9 @@ import selectBackgroundImage from "./helpers/selectBackgroundImage";
 const GlobalStyle = createGlobalStyle`
 ${styledSanitize}
 @import url("https://fonts.googleapis.com/css?family=Exo");
+html{
+  min-height: 100%;
+}
 body {
   height: 100%;
   line-height: normal;
