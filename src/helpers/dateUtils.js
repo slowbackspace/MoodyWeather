@@ -1,8 +1,13 @@
-function formatTwoDigits(n) {
-  return n < 10 ? '0' + n : n;
-}
+import { formatToTimeZone } from "date-fns-timezone";
 
-export const getTimeFromTimestamp = (timestamp) => {
-  var date  = new Date(timestamp * 1000);
-return formatTwoDigits(date.getHours()) + ":" + formatTwoDigits(date.getMinutes());
-}
+export const getTimeFromTimestamp = (timestamp, timezone) => {
+  const date = new Date(timestamp * 1000);
+  try {
+    const output = formatToTimeZone(date, "HH:mm", { timeZone: timezone });
+    return output;
+  } catch (error) {
+    console.log(error);
+    const output = formatToTimeZone(date, "HH:mm", {timeZone: "Europe/Prague", convertTimeZone: false});
+    return output;
+  }
+};

@@ -165,12 +165,12 @@ class WeatherCard extends Component {
           <Measurement
             title="Sunrise"
             iconName="sunrise"
-            value={getTimeFromTimestamp(this.props.sys.sunrise)}
+            value={getTimeFromTimestamp(this.props.sys.sunrise, this.props.sys.timezone)}
           />
           <Measurement
             title="Sunset"
             iconName="sunset"
-            value={getTimeFromTimestamp(this.props.sys.sunset)}
+            value={getTimeFromTimestamp(this.props.sys.sunset, this.props.sys.timezone)}
           />
         </Wrapper>
       </StyledWeatherCard>
@@ -180,7 +180,7 @@ class WeatherCard extends Component {
 
 WeatherCard.propTypes = {
   name: PropTypes.string,
-  coords: PropTypes.shape({
+  coord: PropTypes.shape({
     lon: PropTypes.number,
     lat: PropTypes.number
   }),
@@ -215,7 +215,8 @@ WeatherCard.propTypes = {
   sys: PropTypes.shape({
     sunrise: PropTypes.number,
     sunset: PropTypes.number,
-    country: PropTypes.string
+    country: PropTypes.string,
+    timezone: PropTypes.string
   })
 };
 
