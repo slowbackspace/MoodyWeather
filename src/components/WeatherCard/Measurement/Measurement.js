@@ -24,6 +24,7 @@ const MeasurementTitle = styled.div`
 
 const MeasurementContent = styled.div`
   display: flex;
+  align-items: center;
 
   @media all and (max-width: 380px) {
     justify-content: space-between;
