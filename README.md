@@ -8,8 +8,6 @@ Simple React Weather App built with styled components.
 - ability to find user's location using Geolocation API
 - background images based on weather condition
 - pinned location loads automatically on page visit
-
-### TODO
-- [ ] Show sunrise and sunset times in the location's timezone. 
+- shows sunrise and sunset times in the location's timezone  thanks to the custom `sys.timezone` json field injected in the backend [moody-weather-api](https://github.com/slowbackspace/moody-weather-api). 
 
 ![Screenshot](screenshot.png)
